@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bpc4ff258iikd"]
+[gd_scene load_steps=6 format=3 uid="uid://biwbhyrl0qfee"]
 
+[ext_resource type="Script" path="res://Scenes/main.gd" id="1_r0abu"]
 [ext_resource type="Texture2D" uid="uid://ccps4lyslmrxm" path="res://icon.svg" id="1_x28s3"]
-[ext_resource type="PackedScene" uid="uid://bu1slyb6qdusv" path="res://Pawn Scenes/player.tscn" id="2_boxvc"]
+[ext_resource type="PackedScene" uid="uid://bu1slyb6qdusv" path="res://Component Scenes/player.tscn" id="2_boxvc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tcdbn"]
 texture = ExtResource("1_x28s3")
@@ -73,7 +74,8 @@ texture = ExtResource("1_x28s3")
 [sub_resource type="TileSet" id="TileSet_6nmwk"]
 sources/1 = SubResource("TileSetAtlasSource_tcdbn")
 
-[node name="Node2D" type="Node2D"]
+[node name="Main" type="Node2D"]
+script = ExtResource("1_r0abu")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_6nmwk")

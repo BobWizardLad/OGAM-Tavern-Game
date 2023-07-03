@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bu1slyb6qdusv"]
+[gd_scene load_steps=4 format=3 uid="uid://bu1slyb6qdusv"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_umjvn"]
 [ext_resource type="Texture2D" uid="uid://ccps4lyslmrxm" path="res://icon.svg" id="2_ojurv"]
+[ext_resource type="PackedScene" uid="uid://dsa8f76e842eq" path="res://Component Scenes/game_ui.tscn" id="3_eg68c"]
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_umjvn")
@@ -10,3 +11,7 @@ script = ExtResource("1_umjvn")
 texture = ExtResource("2_ojurv")
 
 [node name="Camera" type="Camera2D" parent="."]
+position = Vector2(-574, -331)
+anchor_mode = 0
+
+[node name="GameUI" parent="Camera" instance=ExtResource("3_eg68c")]
