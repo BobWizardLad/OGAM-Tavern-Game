@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=5 format=3 uid="uid://bpc4ff258iikd"]
 
 [ext_resource type="Texture2D" uid="uid://ccps4lyslmrxm" path="res://icon.svg" id="1_x28s3"]
 [ext_resource type="PackedScene" uid="uid://bu1slyb6qdusv" path="res://Pawn Scenes/player.tscn" id="2_boxvc"]
