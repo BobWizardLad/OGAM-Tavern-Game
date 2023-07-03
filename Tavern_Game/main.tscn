@@ -1,9 +1,0 @@
-<<<<<<< Updated upstream
-[gd_scene format=3 uid="uid://dx56cfro47ca3"]
-=======
-[gd_scene load_steps=2 format=3 uid="uid://dx56cfro47ca3"]
-
-[ext_resource type="PackedScene" uid="uid://bea86ul4tautc" path="res://player.tscn" id="1_qxgrj"]
->>>>>>> Stashed changes
-
-[node name="Node2D" type="Node2D"]
