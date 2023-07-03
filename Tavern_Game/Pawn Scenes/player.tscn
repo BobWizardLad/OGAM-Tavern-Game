@@ -6,5 +6,7 @@
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_umjvn")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_ojurv")
+
+[node name="Camera" type="Camera2D" parent="."]

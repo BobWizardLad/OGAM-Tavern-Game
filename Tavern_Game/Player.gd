@@ -3,16 +3,16 @@ extends CharacterBody2D
 @export var SPEED = 300.0
 var direction = Vector2.ZERO
 
-func _physics_process(delta):
+# Handle player movement and physics process
+func _physics_process(_delta):
 	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	if Input.is_action_pressed("ui_up"):
+	if Input.is_action_pressed("player_up"):
 		direction += Vector2(0, -1)
-	if Input.is_action_pressed("ui_down"):
+	if Input.is_action_pressed("player_down"):
 		direction += Vector2(0, 1)
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("player_right"):
 		direction += Vector2(1, 0)
-	if Input.is_action_pressed("ui_left"):
+	if Input.is_action_pressed("player_left"):
 		direction += Vector2(-1, 0)
 	
 	velocity = direction * SPEED
