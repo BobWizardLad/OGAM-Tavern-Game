@@ -1,0 +1,43 @@
+Class: Grid
+
+A visual brain for the game battle instance. Handles all mapping between logic and the game board.
+
+Properties:
+
+    size: Vector2 (export) - Size of the grid, representing an AxB sized game board.
+    grid_offset: Vector2 (export) - Size of the offset from the global root to the grid.
+    cell_size: Vector2 (export) - Size of each cell in pixels, representing an AxA cell dimension.
+
+Variables:
+
+    _cell_half: Vector2 - Half the size of a cell, calculated as cell_size / 2.
+    _tile_offset: Vector2 - Offset of the grid in tiles, calculated as grid_offset / cell_size.
+
+Methods:
+get_grid_snap(grid_position: Vector2) -> Vector2
+
+Input the inner-grid position and get the map location by pixels. Used to snap nodes into the grid system.
+
+    grid_position: Vector2 - Inner-grid position.
+    Returns: Vector2 - Map location snapped to the grid.
+
+get_map_to_grid(map_position: Vector2) -> Vector2
+
+Input a pixel position on the map and get the grid tile it is in. Used to relate map coordinates to grid tiles. Used with get_grid_snap() to place objects.
+
+    map_position: Vector2 - Pixel position on the map.
+    Returns: Vector2 - Grid tile coordinates.
+
+is_within_bounds(cell_coordinates: Vector2) -> bool
+
+Checker to see if the inner-grid coordinate is within the bounds of the play area.
+
+    cell_coordinates: Vector2 - Inner-grid coordinates.
+    Returns: bool - true if the coordinates are within bounds, false otherwise.
+
+as_index(cell: Vector2) -> int
+
+Get the integer index of a cell to bypass a 2D array.
+
+    cell: Vector2 - Grid cell coordinates.
+    Returns: int - Integer index of the cell.
