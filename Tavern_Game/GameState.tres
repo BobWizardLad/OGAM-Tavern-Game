@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="GameState" load_steps=2 format=3 uid="uid://do825fptb7kul"]
+
+[ext_resource type="Script" path="res://GameState.gd" id="1_53e8t"]
+
+[resource]
+script = ExtResource("1_53e8t")
+currency = 500
+popularity_rank = 3

@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://biwbhyrl0qfee"]
+[gd_scene load_steps=9 format=3 uid="uid://biwbhyrl0qfee"]
 
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_r0abu"]
 [ext_resource type="Texture2D" uid="uid://ccps4lyslmrxm" path="res://icon.svg" id="1_x28s3"]
 [ext_resource type="PackedScene" uid="uid://bu1slyb6qdusv" path="res://Component Scenes/player.tscn" id="2_boxvc"]
 [ext_resource type="Script" path="res://Component Scenes/InteractHandler.gd" id="4_2kmu8"]
+
+[sub_resource type="Resource" id="Resource_carkw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bbgaq"]
 texture_region_size = Vector2i(32, 32)
@@ -35,6 +37,7 @@ sources/0 = SubResource("TileSetAtlasSource_bbgaq")
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_r0abu")
+game_state = SubResource("Resource_carkw")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_6nmwk")
@@ -43,7 +46,6 @@ layer_0/tile_data = PackedInt32Array(0, 1, 0, 65536, 1, 0, 131072, 1, 0, 196608,
 
 [node name="Player" parent="." instance=ExtResource("2_boxvc")]
 position = Vector2(599, 325)
-SPEED = 200.0
 
 [node name="InteractHandler" type="Node2D" parent="."]
 unique_name_in_owner = true

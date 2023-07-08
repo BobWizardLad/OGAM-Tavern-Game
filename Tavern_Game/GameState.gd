@@ -1,3 +1,4 @@
+class_name GameState
 extends Resource
 
 @export var currency = 0

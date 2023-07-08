@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://bu1slyb6qdusv"]
+[gd_scene load_steps=17 format=3 uid="uid://bu1slyb6qdusv"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_umjvn"]
 [ext_resource type="Texture2D" uid="uid://vxxiycgte6p6" path="res://walkingSheet.png" id="2_q3byh"]
+[ext_resource type="PackedScene" uid="uid://dsa8f76e842eq" path="res://Component Scenes/game_ui.tscn" id="3_eha1g"]
 
 [sub_resource type="Animation" id="Animation_moobo"]
 length = 0.001
@@ -165,3 +166,9 @@ active = true
 parameters/walk/blend_position = 0.2
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="GameUI" parent="Camera2D" instance=ExtResource("3_eha1g")]
+offset_left = -575.0
+offset_top = -323.0
+offset_right = -575.0
+offset_bottom = -323.0
