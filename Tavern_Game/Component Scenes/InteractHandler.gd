@@ -14,7 +14,7 @@ func _ready():
 # Called every frame to draw graphics onscreen
 func _draw():
 	if display_rect:
-		draw_rect(Rect2(rect_coords.x, rect_coords.y, 128, 128), Color.TURQUOISE, false)
+		draw_rect(Rect2(rect_coords.x, rect_coords.y, 32, 32), Color.TURQUOISE, false)
 	
 # Set the display coords externally so that we can draw
 # from a global reference point (this class)

@@ -1,8 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://bu1slyb6qdusv"]
+[gd_scene load_steps=16 format=3 uid="uid://bu1slyb6qdusv"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_umjvn"]
 [ext_resource type="Texture2D" uid="uid://vxxiycgte6p6" path="res://walkingSheet.png" id="2_q3byh"]
-[ext_resource type="Script" path="res://Component Scenes/InteractHandler.gd" id="3_p1jut"]
 
 [sub_resource type="Animation" id="Animation_moobo"]
 length = 0.001
@@ -144,13 +143,11 @@ states/walk/node = SubResource("AnimationNodeBlendSpace1D_tslmc")
 states/walk/position = Vector2(459, 100)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_l458l"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_lroi0"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_uhu7w")]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_x3o42"]
-
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_umjvn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(4, 4)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_q3byh")
 flip_h = true
 hframes = 2
@@ -165,10 +162,6 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_7sod4")
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_x3o42")
 parameters/walk/blend_position = 0.2
 
 [node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="InteractHandler" type="Node2D" parent="."]
-script = ExtResource("3_p1jut")
