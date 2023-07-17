@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://de1clxytiitc6"]
+[gd_scene load_steps=3 format=3 uid="uid://de1clxytiitc6"]
 
-[ext_resource type="Script" path="res://menu.gd" id="1_6is12"]
+[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_0pjii"]
+[ext_resource type="Texture2D" uid="uid://ma3jw374ocdl" path="res://Assets/MenuShot.png" id="2_k8pu6"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -10,7 +11,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 0
-script = ExtResource("1_6is12")
+script = ExtResource("1_0pjii")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_k8pu6")
+expand_mode = 2
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -27,9 +35,10 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -50.5
-offset_right = 200.0
-offset_bottom = 50.5
+offset_left = 23.0
+offset_top = -74.0
+offset_right = 238.0
+offset_bottom = 31.0
 grow_vertical = 2
 
 [node name="Start" type="Button" parent="VBoxContainer"]

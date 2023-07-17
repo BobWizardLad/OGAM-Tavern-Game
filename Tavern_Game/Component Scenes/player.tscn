@@ -1,8 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://bu1slyb6qdusv"]
 
-[ext_resource type="Script" path="res://Player.gd" id="1_umjvn"]
-[ext_resource type="Texture2D" uid="uid://vxxiycgte6p6" path="res://walkingSheet.png" id="2_q3byh"]
-[ext_resource type="PackedScene" uid="uid://dsa8f76e842eq" path="res://Component Scenes/game_ui.tscn" id="3_eha1g"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_xm3md"]
+[ext_resource type="Texture2D" uid="uid://vxxiycgte6p6" path="res://Assets/walkingSheet.png" id="2_aqy2c"]
 
 [sub_resource type="Animation" id="Animation_moobo"]
 length = 0.001
@@ -144,12 +143,15 @@ states/walk/node = SubResource("AnimationNodeBlendSpace1D_tslmc")
 states/walk/position = Vector2(459, 100)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_l458l"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_lroi0"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_uhu7w")]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1l0vj"]
+size = Vector2(14, 10)
+
 [node name="Player" type="CharacterBody2D"]
-script = ExtResource("1_umjvn")
+script = ExtResource("1_xm3md")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("2_q3byh")
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_aqy2c")
 flip_h = true
 hframes = 2
 vframes = 4
@@ -166,9 +168,9 @@ active = true
 parameters/walk/blend_position = 0.2
 
 [node name="Camera2D" type="Camera2D" parent="."]
+enabled = false
+zoom = Vector2(5, 5)
 
-[node name="GameUI" parent="Camera2D" instance=ExtResource("3_eha1g")]
-offset_left = -575.0
-offset_top = -323.0
-offset_right = -575.0
-offset_bottom = -323.0
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_1l0vj")

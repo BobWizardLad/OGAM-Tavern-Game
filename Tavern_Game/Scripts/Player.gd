@@ -1,17 +1,12 @@
 extends CharacterBody2D
 var grid: Resource = load("res://Grid.tres")
 
-@export var SPEED = 200.0
+@export var SPEED = 50.0
 var direction = Vector2.ZERO
 
-signal interaction
 
 @onready var animation_tree = $AnimationTree
 @onready var state_machine = animation_tree.get("parameters/playback")
-@onready var interaction_handler = %InteractHandler
-
-func _ready():
-	connect("interaction", interaction_handler.set_disp_coords)
 
 func _physics_process(_delta):
 	# Get the input direction and handle the movement/deceleration.
@@ -40,9 +35,4 @@ func pick_new_state():
 		state_machine.travel("walk")
 	else:
 		state_machine.travel("idle")
-		
-func _draw():
-		var tile = grid.get_map_to_grid(Vector2(global_position.x - 32, global_position.y - 32)) + direction
-		var tile_pixels = grid.get_grid_snap(tile)
-		emit_signal("interaction", tile_pixels)
 

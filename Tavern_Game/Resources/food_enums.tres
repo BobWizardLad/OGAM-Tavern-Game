@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="FoodEnums" load_steps=2 format=3 uid="uid://bsjkckccwiyw7"]
+
+[ext_resource type="Script" path="res://Scripts/FoodEnums.gd" id="1_gchds"]
+
+[resource]
+script = ExtResource("1_gchds")
