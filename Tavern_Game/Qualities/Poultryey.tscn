@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsqtln5dc1bwd"]
+
+[ext_resource type="Script" path="res://Scripts/Quality.gd" id="1_oli0m"]
+
+[node name="Poultryey" type="Node2D"]
+script = ExtResource("1_oli0m")
+type = 1
+flavor = 2

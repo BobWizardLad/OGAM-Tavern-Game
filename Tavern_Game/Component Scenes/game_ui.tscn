@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dsa8f76e842eq"]
 
-[ext_resource type="Texture2D" uid="uid://ccps4lyslmrxm" path="res://icon.svg" id="1_mj0k1"]
+[ext_resource type="Texture2D" uid="uid://ccps4lyslmrxm" path="res://Assets/icon.svg" id="1_mj0k1"]
 
 [node name="GameUI" type="Control"]
 layout_mode = 3

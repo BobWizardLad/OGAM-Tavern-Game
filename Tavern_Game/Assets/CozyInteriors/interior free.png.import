@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vxxiycgte6p6"
-path="res://.godot/imported/walkingSheet.png-b0f1b74907010e3ef08b7819243b6567.ctex"
+uid="uid://b6ydfokwjnd00"
+path="res://.godot/imported/interior free.png-06c2f5a84328f0ce5126e70dcc4b6b1d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://walkingSheet.png"
-dest_files=["res://.godot/imported/walkingSheet.png-b0f1b74907010e3ef08b7819243b6567.ctex"]
+source_file="res://Assets/CozyInteriors/interior free.png"
+dest_files=["res://.godot/imported/interior free.png-06c2f5a84328f0ce5126e70dcc4b6b1d.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0yl1ek11vc3e"
-path="res://.godot/imported/free.png-d95a25c7262ff15b69dc1472c71467e1.ctex"
+uid="uid://blbtterns363v"
+path="res://.godot/imported/Karot.png-562b416bdcb9514cd8465df9bf5fa5eb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://COzyFarmAssetPack/free.png"
-dest_files=["res://.godot/imported/free.png-d95a25c7262ff15b69dc1472c71467e1.ctex"]
+source_file="res://Assets/Karot.png"
+dest_files=["res://.godot/imported/Karot.png-562b416bdcb9514cd8465df9bf5fa5eb.ctex"]
 
 [params]
 

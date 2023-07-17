@@ -1,12 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://biwbhyrl0qfee"]
+[gd_scene load_steps=13 format=3 uid="uid://biwbhyrl0qfee"]
 
-[ext_resource type="Script" path="res://Scenes/main.gd" id="1_r0abu"]
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_1biiv"]
+[ext_resource type="Texture2D" uid="uid://b6ydfokwjnd00" path="res://Assets/CozyInteriors/interior free.png" id="2_41ewl"]
 [ext_resource type="PackedScene" uid="uid://bu1slyb6qdusv" path="res://Component Scenes/player.tscn" id="2_boxvc"]
-[ext_resource type="Texture2D" uid="uid://b6ydfokwjnd00" path="res://CozyInteriors/interior free.png" id="2_npkik"]
-[ext_resource type="Texture2D" uid="uid://c0yl1ek11vc3e" path="res://COzyFarmAssetPack/free.png" id="3_ihffw"]
+[ext_resource type="Texture2D" uid="uid://c0yl1ek11vc3e" path="res://Assets/COzyFarmAssetPack/free.png" id="3_yl8sp"]
+[ext_resource type="PackedScene" uid="uid://dpkog2g7wllu1" path="res://Component Scenes/ingredient.tscn" id="5_un7qy"]
+[ext_resource type="Texture2D" uid="uid://blbtterns363v" path="res://Assets/Karot.png" id="6_0ft3q"]
+[ext_resource type="PackedScene" uid="uid://3iy8uhkrf6q1" path="res://Qualities/Greeny.tscn" id="7_i4mw8"]
+[ext_resource type="PackedScene" uid="uid://drf5bco5a77p8" path="res://Qualities/Potatoey.tscn" id="8_dplyl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_268lm"]
-texture = ExtResource("2_npkik")
+texture = ExtResource("2_41ewl")
 0:0/0 = 0
 0:0/0/z_index = 6
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -169,7 +173,7 @@ texture = ExtResource("2_npkik")
 1:4/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tj01p"]
-texture = ExtResource("3_ihffw")
+texture = ExtResource("3_yl8sp")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -497,8 +501,11 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_268lm")
 sources/3 = SubResource("TileSetAtlasSource_tj01p")
 
+[sub_resource type="LabelSettings" id="LabelSettings_jhd6s"]
+font_size = 40
+
 [node name="Main" type="Node2D"]
-script = ExtResource("1_r0abu")
+script = ExtResource("1_1biiv")
 
 [node name="Map" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_6nmwk")
@@ -515,8 +522,30 @@ layer_1/z_index = -5
 layer_1/tile_data = PackedInt32Array(1245215, 1, 0, 1310751, 1, 1, 1245216, 65537, 0, 1310752, 65537, 1, 1441823, 1, 0, 1507359, 1, 1, 1441824, 65537, 0, 1507360, 65537, 1, 1441827, 1, 0, 1507363, 1, 1, 1441828, 65537, 0, 1507364, 65537, 1, 1441831, 1, 0, 1507367, 1, 1, 1441832, 65537, 0, 1507368, 65537, 1, 1441835, 1, 0, 1507371, 1, 1, 1441836, 65537, 0, 1507372, 65537, 1, 1245219, 1, 0, 1310755, 1, 1, 1245220, 65537, 0, 1310756, 65537, 1, 1310754, 262145, 1, 1245218, 262145, 0, 1245221, 327681, 0, 1310757, 327681, 1, 1245217, 327681, 0, 1310753, 327681, 1, 1245214, 262145, 0, 1310750, 262145, 1, 1441822, 262145, 0, 1507358, 262145, 1, 1441825, 327681, 0, 1507361, 327681, 1, 1441829, 327681, 0, 1507365, 327681, 1, 1441833, 327681, 0, 1507369, 327681, 1, 1441837, 327681, 0, 1507373, 327681, 1, 1441830, 262145, 0, 1507366, 262145, 1, 1441834, 262145, 0, 1507370, 262145, 1, 1441826, 262145, 0, 1507362, 262145, 1)
 
 [node name="Player" parent="." instance=ExtResource("2_boxvc")]
-position = Vector2(599, 325)
+position = Vector2(668, 321)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(619, 338)
 zoom = Vector2(3, 3)
+
+[node name="Ingredient" parent="." instance=ExtResource("5_un7qy")]
+z_index = 1
+position = Vector2(576, 319)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_0ft3q")
+metadata/_edit_group_ = true
+
+[node name="Greeny" parent="Ingredient" instance=ExtResource("7_i4mw8")]
+
+[node name="Potatoey" parent="Ingredient" instance=ExtResource("8_dplyl")]
+scale = Vector2(1, 1)
+
+[node name="Label" type="Label" parent="Ingredient"]
+anchors_preset = -1
+anchor_top = -0.062
+anchor_bottom = -0.062
+offset_left = -150.0
+offset_top = -115.08
+offset_right = 180.0
+offset_bottom = -60.08
+label_settings = SubResource("LabelSettings_jhd6s")

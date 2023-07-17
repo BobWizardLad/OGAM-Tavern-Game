@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://bu1slyb6qdusv"]
 
-[ext_resource type="Script" path="res://Player.gd" id="1_umjvn"]
-[ext_resource type="Texture2D" uid="uid://vxxiycgte6p6" path="res://walkingSheet.png" id="2_q3byh"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_xm3md"]
+[ext_resource type="Texture2D" uid="uid://vxxiycgte6p6" path="res://Assets/walkingSheet.png" id="2_aqy2c"]
 
 [sub_resource type="Animation" id="Animation_moobo"]
 length = 0.001
@@ -147,11 +147,11 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 size = Vector2(14, 10)
 
 [node name="Player" type="CharacterBody2D"]
-script = ExtResource("1_umjvn")
+script = ExtResource("1_xm3md")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("2_q3byh")
+texture = ExtResource("2_aqy2c")
 flip_h = true
 hframes = 2
 vframes = 4

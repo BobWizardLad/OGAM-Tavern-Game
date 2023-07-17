@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvn1v831sbk85"]
+
+[ext_resource type="Script" path="res://Scripts/Quality.gd" id="1_pqv4v"]
+
+[node name="Tomatoey" type="Node2D"]
+script = ExtResource("1_pqv4v")
+type = 4
+flavor = 3

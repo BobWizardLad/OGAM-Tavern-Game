@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d06nafse2l4wg"]
+
+[ext_resource type="Script" path="res://Scripts/Quality.gd" id="1_4gaij"]
+
+[node name="Ricey" type="Node2D"]
+script = ExtResource("1_4gaij")
+type = 2
+flavor = 5
