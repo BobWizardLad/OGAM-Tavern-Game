@@ -2,6 +2,9 @@ extends CharacterBody2D
 var grid: Resource = load("res://Grid.tres")
 
 @export var SPEED = 50.0
+@export var SPRINT_CONST = 1.75
+
+var real_speed = SPEED
 var direction = Vector2.ZERO
 
 
@@ -9,6 +12,11 @@ var direction = Vector2.ZERO
 @onready var state_machine = animation_tree.get("parameters/playback")
 
 func _physics_process(_delta):
+	
+	# Sprinting for the massive map, multiply the 
+	if Input.is_action_pressed("sprint"):
+		real_speed = SPEED * SPRINT_CONST
+	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	if Input.is_action_pressed("player_up"):
@@ -22,13 +30,15 @@ func _physics_process(_delta):
 		direction += Vector2.LEFT
 		animation_tree.set("parameters/walk/blend_position", -1)
 	
-	velocity = direction * SPEED
+	velocity = direction * real_speed
 	
 	move_and_slide()
 	pick_new_state()
 	
+	# Zero our values for the next go-around.
 	direction = Vector2.ZERO
 	velocity = Vector2.ZERO
+	real_speed = SPEED
 	
 func pick_new_state():
 	if(velocity != Vector2.ZERO):
