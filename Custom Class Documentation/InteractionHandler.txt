@@ -1,0 +1,25 @@
+Class: InteractionHandler
+A class stub for tools that interact with a grid world via a "tap" or "interact" input. Objects can extend from this class and overwrite the default behaviors of on_tap() and on_interact() to define their own behaviors.
+
+Properties:
+
+    display_rect: bool - Flag to indicate whether to display a rectangle.
+    rect_coords: Vector2 - Coordinates of the rectangle.
+
+Methods:
+
+set_disp_coords(pos: Vector2) -> void
+
+Sets the display coordinates externally so that the rectangle can be drawn from a global reference point (within this class).
+
+    pos: Vector2 - Display coordinates.
+
+on_tap() -> void
+
+Called when the "tap" behavior is triggered (e.g., left-click). This function is generalized for tools and can be overwritten to define custom behavior.
+
+on_interact() -> void
+
+Called when the "interact" behavior is triggered (e.g., right-click). This function is generalized for tools and can be overwritten to define custom behavior.
+
+Feel free to extend this class and override the on_tap() and on_interact() functions to implement your specific behaviors.

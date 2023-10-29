@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b62nmdgr0x41y"]
+
+[ext_resource type="Script" path="res://Scripts/Quality.gd" id="1_ghvuf"]
+
+[node name="Floury" type="Node2D"]
+script = ExtResource("1_ghvuf")
+type = 2
+flavor = 5

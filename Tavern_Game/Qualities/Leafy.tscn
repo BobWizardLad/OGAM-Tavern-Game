@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dan63t7unv0e6"]
+
+[ext_resource type="Script" path="res://Scripts/Quality.gd" id="1_jp3tc"]
+
+[node name="Leafy" type="Node2D"]
+script = ExtResource("1_jp3tc")
+type = 4
+flavor = 5

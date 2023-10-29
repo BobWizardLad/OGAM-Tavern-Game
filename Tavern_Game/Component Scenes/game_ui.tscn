@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsa8f76e842eq"]
+
+[ext_resource type="Texture2D" uid="uid://ccps4lyslmrxm" path="res://Assets/icon.svg" id="1_mj0k1"]
+
+[node name="GameUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Resources" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.108
+anchor_bottom = 0.086
+offset_right = -84.416
+offset_bottom = -15.728
+script = ExtResource("1_38b6a")
+state = ExtResource("2_020sh")
+
+[node name="Currency" type="HBoxContainer" parent="Resources"]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Resources/Currency"]
+layout_mode = 2
+texture = ExtResource("1_mj0k1")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="Resources/Currency"]
+layout_mode = 2
+text = "Currency: "
+
+[node name="Value" type="Label" parent="Resources/Currency"]
+layout_mode = 2
+
+[node name="Popularity" type="HBoxContainer" parent="Resources"]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Resources/Popularity"]
+layout_mode = 2
+texture = ExtResource("1_mj0k1")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="Resources/Popularity"]
+layout_mode = 2
+text = "Popularity: "
+
+[node name="Value" type="Label" parent="Resources/Popularity"]
+layout_mode = 2
