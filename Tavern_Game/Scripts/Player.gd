@@ -4,6 +4,8 @@ var grid: Resource = load("res://Grid.tres")
 @export var SPEED = 50.0
 @export var SPRINT_CONST = 1.75
 
+@export var inventory_data: InventoryData
+
 var real_speed = SPEED
 var direction = Vector2.ZERO
 

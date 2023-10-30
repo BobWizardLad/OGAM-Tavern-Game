@@ -1,13 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://biwbhyrl0qfee"]
+[gd_scene load_steps=16 format=3 uid="uid://biwbhyrl0qfee"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_1biiv"]
 [ext_resource type="Texture2D" uid="uid://b6ydfokwjnd00" path="res://Assets/CozyInteriors/interior free.png" id="2_41ewl"]
 [ext_resource type="PackedScene" uid="uid://bu1slyb6qdusv" path="res://Component Scenes/player.tscn" id="2_boxvc"]
 [ext_resource type="Texture2D" uid="uid://c0yl1ek11vc3e" path="res://Assets/COzyFarmAssetPack/free.png" id="3_yl8sp"]
 [ext_resource type="PackedScene" uid="uid://dpkog2g7wllu1" path="res://Component Scenes/ingredient.tscn" id="5_un7qy"]
+[ext_resource type="Resource" uid="uid://dy8552g4er8g8" path="res://Inventory/test_inv.tres" id="5_v6xww"]
 [ext_resource type="Texture2D" uid="uid://blbtterns363v" path="res://Assets/Karot.png" id="6_0ft3q"]
 [ext_resource type="PackedScene" uid="uid://3iy8uhkrf6q1" path="res://Qualities/Greeny.tscn" id="7_i4mw8"]
 [ext_resource type="PackedScene" uid="uid://drf5bco5a77p8" path="res://Qualities/Potatoey.tscn" id="8_dplyl"]
+[ext_resource type="PackedScene" uid="uid://ft1hh7xm0ix5" path="res://Scenes/inventory.tscn" id="9_po0ju"]
+[ext_resource type="Script" path="res://Scripts/InventoryInterface.gd" id="10_qmf35"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_268lm"]
 texture = ExtResource("2_41ewl")
@@ -524,6 +527,7 @@ layer_1/tile_data = PackedInt32Array(0, 589827, 3, 65536, 589827, 4, 1, 655363, 
 [node name="Player" parent="." instance=ExtResource("2_boxvc")]
 position = Vector2(1115, 564)
 SPEED = 75.0
+inventory_data = ExtResource("5_v6xww")
 
 [node name="Camera2D2" type="Camera2D" parent="Player"]
 position = Vector2(1, 1)
@@ -549,3 +553,17 @@ offset_top = -115.08
 offset_right = 180.0
 offset_bottom = -60.08
 label_settings = SubResource("LabelSettings_jhd6s")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="InventoryInterface" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 55.0
+offset_bottom = 55.0
+script = ExtResource("10_qmf35")
+
+[node name="PlayerInventory" parent="UI/InventoryInterface" instance=ExtResource("9_po0ju")]
+layout_mode = 0
