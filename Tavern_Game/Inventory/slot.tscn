@@ -31,3 +31,5 @@ theme_override_constants/outline_size = 3
 text = "Sneed
 "
 justification_flags = 0
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

@@ -9,9 +9,14 @@ var grid: Resource = load("res://Grid.tres")
 var real_speed = SPEED
 var direction = Vector2.ZERO
 
+signal toggle_inventory()
 
 @onready var animation_tree = $AnimationTree
 @onready var state_machine = animation_tree.get("parameters/playback")
+
+func _unhandled_input(event: InputEvent):
+	if Input.is_action_just_pressed("player_inventory"):
+		toggle_inventory.emit()
 
 func _physics_process(_delta):
 	
