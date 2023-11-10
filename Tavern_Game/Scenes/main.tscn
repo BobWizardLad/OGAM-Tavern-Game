@@ -512,6 +512,7 @@ sources/3 = SubResource("TileSetAtlasSource_tj01p")
 font_size = 40
 
 [node name="Main" type="Node2D"]
+visible = false
 script = ExtResource("1_1biiv")
 
 [node name="Map" type="TileMap" parent="."]
@@ -561,14 +562,14 @@ label_settings = SubResource("LabelSettings_jhd6s")
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="InventoryInterface" type="Control" parent="UI"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_left = 15.0
-offset_top = 15.0
-offset_right = 55.0
-offset_bottom = 55.0
+offset_left = 292.0
+offset_top = 559.0
+offset_right = 332.0
+offset_bottom = 599.0
 script = ExtResource("10_qmf35")
+metadata/_edit_group_ = true
 
 [node name="PlayerInventory" parent="UI/InventoryInterface" instance=ExtResource("9_po0ju")]
 layout_mode = 0

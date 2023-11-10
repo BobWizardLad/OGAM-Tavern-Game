@@ -16,4 +16,4 @@ quantity = 12
 
 [resource]
 script = ExtResource("1_evy2b")
-slot_datas = Array[ExtResource("3_1otgt")]([SubResource("Resource_8im22"), null, SubResource("Resource_nvpny"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
+slot_datas = Array[ExtResource("3_1otgt")]([SubResource("Resource_8im22"), null, SubResource("Resource_nvpny"), null, null, null, null, null, null])
