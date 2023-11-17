@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://cxwp67ymibb3c"]
+[gd_scene load_steps=9 format=3 uid="uid://cxwp67ymibb3c"]
 
+[ext_resource type="Script" path="res://Component Scenes/guest_balloon.gd" id="1_pmm4r"]
 [ext_resource type="Texture2D" uid="uid://bt18y2pindci0" path="res://Assets/NPCballoon.png" id="2_obsxv"]
 
 [sub_resource type="Animation" id="Animation_moobo"]
@@ -115,6 +116,7 @@ _data = {
 size = Vector2(14, 10)
 
 [node name="GuestBalloon" type="CharacterBody2D"]
+script = ExtResource("1_pmm4r")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-5.96046e-08, -8.9407e-07)

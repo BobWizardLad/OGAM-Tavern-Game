@@ -1,5 +1,5 @@
 extends CharacterBody2D
-var grid: Resource = load("res://Grid.tres")
+# Grid no longer used in this build
 
 @export var SPEED = 50.0
 @export var SPRINT_CONST = 1.75
