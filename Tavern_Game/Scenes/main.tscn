@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://biwbhyrl0qfee"]
+[gd_scene load_steps=18 format=3 uid="uid://biwbhyrl0qfee"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_1biiv"]
 [ext_resource type="Texture2D" uid="uid://b6ydfokwjnd00" path="res://Assets/CozyInteriors/interior free.png" id="2_41ewl"]
@@ -12,9 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ft1hh7xm0ix5" path="res://Scenes/inventory.tscn" id="9_po0ju"]
 [ext_resource type="Script" path="res://Scripts/InventoryInterface.gd" id="10_qmf35"]
 [ext_resource type="PackedScene" uid="uid://d2vf3gh4b3262" path="res://Inventory/slot.tscn" id="12_1dgt5"]
-[ext_resource type="PackedScene" uid="uid://cxwp67ymibb3c" path="res://Component Scenes/guest_balloon.tscn" id="12_4640o"]
-[ext_resource type="Texture2D" uid="uid://6prx7y0woqdw" path="res://Assets/NPCboast.png" id="13_j1jot"]
-[ext_resource type="Texture2D" uid="uid://bj2c3foo2kob4" path="res://Assets/NPCbuff.png" id="14_5extp"]
+[ext_resource type="PackedScene" uid="uid://bnka7hlm6aau6" path="res://Component Scenes/guest_handler.tscn" id="13_hx6xn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_268lm"]
 texture = ExtResource("2_41ewl")
@@ -559,6 +557,12 @@ offset_right = 180.0
 offset_bottom = -60.08
 label_settings = SubResource("LabelSettings_jhd6s")
 
+[node name="GuestHandler" parent="." instance=ExtResource("13_hx6xn")]
+GUEST_SPAWN_RANGEX = [-400, -100]
+GUEST_SPAWN_RANGEY = [575, 650]
+GUEST_DEST_RANGEX = [2100, 2400]
+GUEST_DEST_RANGEY = [575, 650]
+
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="InventoryInterface" type="Control" parent="UI"]
@@ -578,24 +582,3 @@ layout_mode = 0
 modulate = Color(1, 1, 1, 0.443137)
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-
-[node name="GuestBalloon" parent="." instance=ExtResource("12_4640o")]
-position = Vector2(1034, 593)
-
-[node name="GuestBalloon2" parent="." instance=ExtResource("12_4640o")]
-position = Vector2(1063, 592)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" parent="GuestBalloon2" index="0"]
-texture = ExtResource("13_j1jot")
-
-[node name="GuestBalloon3" parent="." instance=ExtResource("12_4640o")]
-position = Vector2(1093, 591)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" parent="GuestBalloon3" index="0"]
-texture = ExtResource("14_5extp")
-metadata/_edit_group_ = true
-
-[editable path="GuestBalloon2"]
-[editable path="GuestBalloon3"]

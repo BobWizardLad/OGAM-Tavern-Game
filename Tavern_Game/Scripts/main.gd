@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var game_state: Resource = load("res://GameState.gd")
+@export var game_state: Resource = load("res://Scripts/GameState.gd")
 @onready var player: CharacterBody2D = $Player
 @onready var inventory_interface: Control = $UI/InventoryInterface
 
