@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bu1slyb6qdusv"]
+[gd_scene load_steps=18 format=3 uid="uid://bu1slyb6qdusv"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_xm3md"]
 [ext_resource type="Texture2D" uid="uid://vxxiycgte6p6" path="res://Assets/walkingSheet.png" id="2_aqy2c"]
@@ -146,6 +146,9 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1l0vj"]
 size = Vector2(14, 10)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xj6eo"]
+height = 26.0
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_xm3md")
 
@@ -171,6 +174,16 @@ parameters/walk/blend_position = 0.2
 enabled = false
 zoom = Vector2(5, 5)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="MapCollide" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_1l0vj")
+
+[node name="PickupArea" type="Area2D" parent="."]
+
+[node name="PickupCollide" type="CollisionShape2D" parent="PickupArea"]
+position = Vector2(-5, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_xj6eo")
+debug_color = Color(0.345098, 0.486275, 1, 0.419608)
+
+[connection signal="area_entered" from="PickupArea" to="." method="_on_pickup"]

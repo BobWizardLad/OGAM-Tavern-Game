@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://biwbhyrl0qfee"]
+[gd_scene load_steps=20 format=3 uid="uid://biwbhyrl0qfee"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_1biiv"]
 [ext_resource type="Texture2D" uid="uid://b6ydfokwjnd00" path="res://Assets/CozyInteriors/interior free.png" id="2_41ewl"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://drf5bco5a77p8" path="res://Qualities/Potatoey.tscn" id="8_dplyl"]
 [ext_resource type="PackedScene" uid="uid://ft1hh7xm0ix5" path="res://Scenes/inventory.tscn" id="9_po0ju"]
 [ext_resource type="Script" path="res://Scripts/InventoryInterface.gd" id="10_qmf35"]
+[ext_resource type="PackedScene" uid="uid://dsc6km4b52wn0" path="res://Qualities/Beefy.tscn" id="10_v6l0o"]
+[ext_resource type="PackedScene" uid="uid://b2nytkjmffavg" path="res://Qualities/Spicy.tscn" id="11_kbkqk"]
 [ext_resource type="PackedScene" uid="uid://d2vf3gh4b3262" path="res://Inventory/slot.tscn" id="12_1dgt5"]
 [ext_resource type="PackedScene" uid="uid://bnka7hlm6aau6" path="res://Component Scenes/guest_handler.tscn" id="13_hx6xn"]
 
@@ -535,18 +537,39 @@ inventory_data = ExtResource("5_v6xww")
 position = Vector2(1, 1)
 zoom = Vector2(3, 3)
 
-[node name="Ingredient" parent="." instance=ExtResource("5_un7qy")]
+[node name="Carrot" parent="." instance=ExtResource("5_un7qy")]
 z_index = 1
 position = Vector2(1023, 562)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("6_0ft3q")
+sprite_src = ExtResource("6_0ft3q")
 metadata/_edit_group_ = true
 
-[node name="Greeny" parent="Ingredient" instance=ExtResource("7_i4mw8")]
+[node name="Greeny" parent="Carrot" instance=ExtResource("7_i4mw8")]
 
-[node name="Potatoey" parent="Ingredient" instance=ExtResource("8_dplyl")]
+[node name="Potatoey" parent="Carrot" instance=ExtResource("8_dplyl")]
 
-[node name="Label" type="Label" parent="Ingredient"]
+[node name="Label" type="Label" parent="Carrot"]
+anchors_preset = -1
+anchor_top = -0.062
+anchor_bottom = -0.062
+offset_left = -150.0
+offset_top = -115.08
+offset_right = 180.0
+offset_bottom = -60.08
+label_settings = SubResource("LabelSettings_jhd6s")
+
+[node name="Sneed" parent="." instance=ExtResource("5_un7qy")]
+z_index = 1
+position = Vector2(1059, 562)
+scale = Vector2(0.1, 0.1)
+sprite_src = ExtResource("6_0ft3q")
+metadata/_edit_group_ = true
+
+[node name="Beefy" parent="Sneed" instance=ExtResource("10_v6l0o")]
+
+[node name="Spicy" parent="Sneed" instance=ExtResource("11_kbkqk")]
+
+[node name="Label" type="Label" parent="Sneed"]
 anchors_preset = -1
 anchor_top = -0.062
 anchor_bottom = -0.062

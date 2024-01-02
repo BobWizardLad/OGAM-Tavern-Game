@@ -11,6 +11,8 @@ var direction = Vector2.ZERO
 
 signal toggle_inventory()
 
+@onready var pickup_area: Area2D = $PickupArea
+
 @onready var animation_tree = $AnimationTree
 @onready var state_machine = animation_tree.get("parameters/playback")
 
@@ -19,7 +21,17 @@ func _unhandled_input(event: InputEvent):
 		toggle_inventory.emit()
 
 func _physics_process(_delta):
+	# Move down into the player nav code
+	player_navigate(_delta)
 	
+	
+func pick_new_state():
+	if(velocity != Vector2.ZERO):
+		state_machine.travel("walk")
+	else:
+		state_machine.travel("idle")
+		
+func player_navigate(delta):
 	# Sprinting for the massive map, multiply the 
 	if Input.is_action_pressed("sprint"):
 		real_speed = SPEED * SPRINT_CONST
@@ -37,6 +49,7 @@ func _physics_process(_delta):
 		direction += Vector2.LEFT
 		animation_tree.set("parameters/walk/blend_position", -1)
 	
+	# Final movement calculation
 	velocity = direction * real_speed
 	
 	move_and_slide()
@@ -46,10 +59,6 @@ func _physics_process(_delta):
 	direction = Vector2.ZERO
 	velocity = Vector2.ZERO
 	real_speed = SPEED
-	
-func pick_new_state():
-	if(velocity != Vector2.ZERO):
-		state_machine.travel("walk")
-	else:
-		state_machine.travel("idle")
 
+func _on_pickup(area):
+	print("Collision with " + area.name)
