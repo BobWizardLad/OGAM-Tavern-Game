@@ -557,9 +557,9 @@ offset_bottom = -60.08
 label_settings = SubResource("LabelSettings_jhd6s")
 
 [node name="GuestHandler" parent="." instance=ExtResource("13_hx6xn")]
-GUEST_SPAWN_RANGEX = [2100, 2400]
+GUEST_SPAWN_RANGEX = [-400, -100]
 GUEST_SPAWN_RANGEY = [575, 650]
-GUEST_DEST_RANGEX = [-400, -100]
+GUEST_DEST_RANGEX = [2100, 2400]
 GUEST_DEST_RANGEY = [575, 650]
 
 [node name="UI" type="CanvasLayer" parent="."]

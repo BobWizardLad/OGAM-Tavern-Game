@@ -11,7 +11,7 @@ class_name GuestHandler
 @export var GUEST_SPEED: int = 100
 
 # Store guest prefabs to generate
-@onready var guest_npc: PackedScene = preload("res://Component Scenes/guest_balloon.tscn")
+@export var guest_npc: PackedScene = preload("res://Component Scenes/guest_balloon.tscn")
 @onready var spawn_timer: Timer = $Timer
 
 # Instantiate guests on timer
