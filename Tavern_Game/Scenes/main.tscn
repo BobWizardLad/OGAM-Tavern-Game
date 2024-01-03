@@ -531,6 +531,7 @@ layer_1/tile_data = PackedInt32Array(0, 589827, 3, 65536, 589827, 4, 1, 655363, 
 [node name="Player" parent="." instance=ExtResource("2_boxvc")]
 position = Vector2(1115, 564)
 SPEED = 75.0
+SPRINT_CONST = 1.75
 inventory_data = ExtResource("5_v6xww")
 
 [node name="Camera2D2" type="Camera2D" parent="Player"]

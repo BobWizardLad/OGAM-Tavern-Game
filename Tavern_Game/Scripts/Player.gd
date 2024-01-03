@@ -11,7 +11,12 @@ var direction = Vector2.ZERO
 
 signal toggle_inventory()
 
+var can_pickup: bool = false
+var pickup_target: Area2D
+var dropped
+
 @onready var pickup_area: Area2D = $PickupArea
+var held_item: Area2D = null
 
 @onready var animation_tree = $AnimationTree
 @onready var state_machine = animation_tree.get("parameters/playback")
@@ -24,6 +29,22 @@ func _physics_process(_delta):
 	# Move down into the player nav code
 	player_navigate(_delta)
 	
+	# Picking up item logic
+	if Input.is_action_pressed("pickup_item") and can_pickup and held_item == null:
+		add_child(pickup_target.duplicate(true))
+		held_item = get_child(-1)
+		held_item.set_position(Vector2(0, -15))
+		pickup_target.queue_free()
+		pickup_target = null
+		can_pickup = false
+		
+	# Dropping item logic
+	if Input.is_action_pressed("drop_item") and held_item != null:
+		dropped = held_item.duplicate(true)
+		dropped.position = position
+		get_parent().add_child(dropped)
+		held_item.queue_free()
+		held_item = null
 	
 func pick_new_state():
 	if(velocity != Vector2.ZERO):
@@ -60,5 +81,11 @@ func player_navigate(delta):
 	velocity = Vector2.ZERO
 	real_speed = SPEED
 
-func _on_pickup(area):
-	print("Collision with " + area.name)
+
+func _on_pickup_area_enter(area):
+	can_pickup = true
+	pickup_target = area
+
+func _on_pickup_area_exit(area):
+	can_pickup = false
+	pickup_target = null

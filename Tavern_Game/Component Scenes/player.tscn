@@ -186,4 +186,5 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_xj6eo")
 debug_color = Color(0.345098, 0.486275, 1, 0.419608)
 
-[connection signal="area_entered" from="PickupArea" to="." method="_on_pickup"]
+[connection signal="area_entered" from="PickupArea" to="." method="_on_pickup_area_enter"]
+[connection signal="area_exited" from="PickupArea" to="." method="_on_pickup_area_exit"]
