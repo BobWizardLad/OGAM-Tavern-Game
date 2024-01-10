@@ -41,7 +41,7 @@ func _physics_process(_delta):
 	# Dropping item logic
 	if Input.is_action_pressed("drop_item") and held_item != null:
 		dropped = held_item.duplicate(true)
-		dropped.position = position
+		dropped.set_position(Vector2(float(int(position.x) - int(position.x) % 16) + 8, (int(position.y) - int(position.y) % 16) + 8))
 		get_parent().add_child(dropped)
 		held_item.queue_free()
 		held_item = null
@@ -65,10 +65,14 @@ func player_navigate(delta):
 		direction += Vector2.DOWN
 	if Input.is_action_pressed("player_right"):
 		direction += Vector2.RIGHT
+		# Turn Right
 		animation_tree.set("parameters/walk/blend_position", 1)
+		pickup_area.set_position(Vector2(10, 0))
 	if Input.is_action_pressed("player_left"):
 		direction += Vector2.LEFT
+		# Turn Left
 		animation_tree.set("parameters/walk/blend_position", -1)
+		pickup_area.set_position(Vector2(0, 0))
 	
 	# Final movement calculation
 	velocity = direction * real_speed
