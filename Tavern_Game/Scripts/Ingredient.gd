@@ -23,6 +23,9 @@ func _ready():
 	
 	# Assign a sprite from the editor
 	sprite.set_texture(sprite_src)
+	
+	# Snap object to grid on startup
+	set_position(Vector2(int(position.x) - int(position.x) % 16 + 8, (int(position.y) - int(position.y) % 16) + 8))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

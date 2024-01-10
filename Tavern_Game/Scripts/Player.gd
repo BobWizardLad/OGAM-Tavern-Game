@@ -29,22 +29,7 @@ func _physics_process(_delta):
 	# Move down into the player nav code
 	player_navigate(_delta)
 	
-	# Picking up item logic
-	if Input.is_action_pressed("pickup_item") and can_pickup and held_item == null:
-		add_child(pickup_target.duplicate(true))
-		held_item = get_child(-1)
-		held_item.set_position(Vector2(0, -15))
-		pickup_target.queue_free()
-		pickup_target = null
-		can_pickup = false
-		
-	# Dropping item logic
-	if Input.is_action_pressed("drop_item") and held_item != null:
-		dropped = held_item.duplicate(true)
-		dropped.set_position(Vector2(float(int(position.x) - int(position.x) % 16) + 8, (int(position.y) - int(position.y) % 16) + 8))
-		get_parent().add_child(dropped)
-		held_item.queue_free()
-		held_item = null
+	player_interact(_delta)
 	
 func pick_new_state():
 	if(velocity != Vector2.ZERO):
@@ -67,7 +52,7 @@ func player_navigate(delta):
 		direction += Vector2.RIGHT
 		# Turn Right
 		animation_tree.set("parameters/walk/blend_position", 1)
-		pickup_area.set_position(Vector2(10, 0))
+		pickup_area.set_position(Vector2(15, 0))
 	if Input.is_action_pressed("player_left"):
 		direction += Vector2.LEFT
 		# Turn Left
@@ -85,6 +70,24 @@ func player_navigate(delta):
 	velocity = Vector2.ZERO
 	real_speed = SPEED
 
+func player_interact(delta):
+	
+	# Picking up item logic
+	if Input.is_action_pressed("pickup_item") and can_pickup and held_item == null:
+		add_child(pickup_target.duplicate(true))
+		held_item = get_child(-1)
+		held_item.set_position(Vector2(0, -15))
+		pickup_target.queue_free()
+		pickup_target = null
+		can_pickup = false
+		
+	# Dropping item logic
+	if Input.is_action_pressed("drop_item") and held_item != null:
+		dropped = held_item.duplicate(true)
+		dropped.set_position(Vector2(int(position.x) - int(position.x) % 16 + 8, (int(position.y) - int(position.y) % 16) + 8))
+		get_parent().add_child(dropped)
+		held_item.queue_free()
+		held_item = null
 
 func _on_pickup_area_enter(area):
 	can_pickup = true

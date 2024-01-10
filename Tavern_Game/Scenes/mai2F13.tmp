@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://biwbhyrl0qfee"]
+[gd_scene load_steps=20 format=3 uid="uid://biwbhyrl0qfee"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_1biiv"]
 [ext_resource type="Texture2D" uid="uid://b6ydfokwjnd00" path="res://Assets/CozyInteriors/interior free.png" id="2_41ewl"]
@@ -511,9 +511,6 @@ sources/3 = SubResource("TileSetAtlasSource_tj01p")
 [sub_resource type="LabelSettings" id="LabelSettings_jhd6s"]
 font_size = 40
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4w3qf"]
-size = Vector2(64, 64)
-
 [node name="Main" type="Node2D"]
 script = ExtResource("1_1biiv")
 
@@ -613,19 +610,3 @@ position = Vector2(912.11, 496.047)
 
 [node name="Node2D2" type="Node2D" parent="."]
 position = Vector2(975.981, 559.69)
-
-[node name="Scoring" type="Area2D" parent="."]
-position = Vector2(500, 559)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scoring"]
-position = Vector2(444, -31)
-shape = SubResource("RectangleShape2D_4w3qf")
-
-[node name="WinLabel" type="Label" parent="."]
-offset_left = 912.0
-offset_top = 470.0
-offset_right = 977.0
-offset_bottom = 493.0
-horizontal_alignment = 1
-
-[connection signal="area_entered" from="Scoring" to="." method="_on_scoring_area_entered"]
