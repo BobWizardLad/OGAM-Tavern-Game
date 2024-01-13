@@ -15,7 +15,6 @@ signal toggle_inventory()
 var can_pickup: bool = false
 var pickup_target: Area2D
 var dropped
-
 @onready var pickup_area: Area2D = $PickupArea
 var held_item: Area2D = null
 
@@ -100,8 +99,9 @@ func player_interact(delta):
 		held_item = null
 
 func _on_pickup_area_enter(area):
-	can_pickup = true
-	pickup_target = area
+	if area.name.contains("Ingredient"):
+		can_pickup = true
+		pickup_target = area
 
 func _on_pickup_area_exit(area):
 	can_pickup = false
