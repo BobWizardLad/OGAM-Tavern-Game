@@ -8,6 +8,7 @@ extends CharacterBody2D
 
 var real_speed = SPEED
 var direction = Vector2.ZERO
+var facing: bool = true
 
 signal toggle_inventory()
 
@@ -26,9 +27,19 @@ func _unhandled_input(event: InputEvent):
 		toggle_inventory.emit()
 
 func _physics_process(_delta):
-	# Move down into the player nav code
+	# Move down into the player nav code.
 	player_navigate(_delta)
 	
+	# When facing is true, we face right.
+	# When facing is false, we face left.
+	if facing:
+		animation_tree.set("parameters/walk/blend_position", 1)
+		pickup_area.set_position(Vector2(15, 0))
+	else:
+		animation_tree.set("parameters/walk/blend_position", -1)
+		pickup_area.set_position(Vector2(0, 0))
+	
+	# Handle the player interacting with items and the map.
 	player_interact(_delta)
 	
 func pick_new_state():
@@ -51,13 +62,12 @@ func player_navigate(delta):
 	if Input.is_action_pressed("player_right"):
 		direction += Vector2.RIGHT
 		# Turn Right
-		animation_tree.set("parameters/walk/blend_position", 1)
-		pickup_area.set_position(Vector2(15, 0))
+		facing = true
+		
 	if Input.is_action_pressed("player_left"):
 		direction += Vector2.LEFT
 		# Turn Left
-		animation_tree.set("parameters/walk/blend_position", -1)
-		pickup_area.set_position(Vector2(0, 0))
+		facing = false
 	
 	# Final movement calculation
 	velocity = direction * real_speed

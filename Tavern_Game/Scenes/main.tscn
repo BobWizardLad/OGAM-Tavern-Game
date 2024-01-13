@@ -628,4 +628,12 @@ offset_right = 977.0
 offset_bottom = 493.0
 horizontal_alignment = 1
 
+[node name="Label" type="Label" parent="."]
+offset_left = 1026.0
+offset_top = 404.0
+offset_right = 1174.0
+offset_bottom = 511.0
+text = "Use Lclick to pick up items, use Rclick to drop them at your feet."
+autowrap_mode = 2
+
 [connection signal="area_entered" from="Scoring" to="." method="_on_scoring_area_entered"]
